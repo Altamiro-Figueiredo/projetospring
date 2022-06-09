@@ -1,13 +1,15 @@
 package com.altamirofigueiredo.projetospringboot1.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "tb_user")
 public class Usuario implements Serializable {
 
     @Id
@@ -17,6 +19,11 @@ public class Usuario implements Serializable {
     private String email;
     private String phone;
     private String password;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
+
 
     public Usuario() {
     }
@@ -68,6 +75,8 @@ public class Usuario implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<Order> getOrders() { return orders; }
 
     @Override
     public boolean equals(Object o) {

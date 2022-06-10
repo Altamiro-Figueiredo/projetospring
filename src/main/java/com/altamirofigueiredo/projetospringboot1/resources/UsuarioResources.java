@@ -3,7 +3,6 @@ package com.altamirofigueiredo.projetospringboot1.resources;
 import com.altamirofigueiredo.projetospringboot1.entities.Usuario;
 import com.altamirofigueiredo.projetospringboot1.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
